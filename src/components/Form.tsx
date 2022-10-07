@@ -9,7 +9,7 @@ interface Props {
   isFormOpen: boolean;
   setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
   type: string;
-  id: string;
+  id?: string;
   data: FormModel;
 }
 
@@ -20,7 +20,7 @@ const FormCP: React.FC<Props> = ({
   id,
   data,
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const [loading, setLoading] = useState<boolean>(false);
 
   const [form] = Form.useForm();

@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Animal, AnimalList } from "../model/animal";
 import { animalService } from "../services";
 
-export const getAllAnimal = createAsyncThunk<[Animal] | undefined, void>(
+export const getAllAnimal = createAsyncThunk<any, string | undefined, {}>(
   "get/animals",
-  async (sortBy: any = "id") => {
+  async (sortBy: string = "id") => {
     try {
       const response = await animalService.getAnimals();
       return response.data.sort((animalA: Animal, animalB: Animal) => {

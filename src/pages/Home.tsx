@@ -15,7 +15,7 @@ import { FormModel } from "../model/form";
 const Home = () => {
   const animal = useSelector((state: any) => state.animal);
   const { name } = useSelector((state: any) => state.user);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const [page, setPage] = useState<number>(1);
   const [sortBy, setSortBy] = useState<string>("-id");
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
