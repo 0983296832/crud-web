@@ -9,3 +9,8 @@
 .shadow-card{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.menu{
+
+    @apply w-full h-[70px] flex items-center justify-around p-5 font-bold wrapper shadow-lg bg-white
+}

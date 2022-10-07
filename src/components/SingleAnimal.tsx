@@ -8,7 +8,6 @@ import { animalService } from "../services";
 import { deleteAnimal } from "../store/petSlice";
 import FormCP from "./Form";
 import { FormModel } from "../model/form";
-import { User } from "../model/user";
 
 interface Props {
   data: Animal;
@@ -58,7 +57,7 @@ const SingleAnimal: React.FC<Props> = ({
     <div className="mt-10 p-4 rounded-md w-[300px] text-center shadow-card">
       <Link to={`/${data.animal_id}`}>
         <img
-          src={data.animal_avatar}
+          src={data.animal_avatar || ""}
           alt=""
           className="w-[300px] rounded-md object-cover"
         />
@@ -91,7 +90,12 @@ const SingleAnimal: React.FC<Props> = ({
         </div>
       )}
 
-      <FormCP type="edit" />
+      <FormCP
+        type="edit"
+        setIsFormOpen={function (value: React.SetStateAction<boolean>): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
     </div>
   );
 };

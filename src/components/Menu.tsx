@@ -32,10 +32,7 @@ const Menu: React.FC = () => {
   );
   return (
     <div>
-      <div
-        className="w-full h-[70px] flex items-center justify-around p-5 
-                   font-bold wrapper shadow-lg bg-white"
-      >
+      <div className="menu">
         <Link to="/">
           <img src={logo} className="w-10 h-10 cursor-pointer" />
         </Link>

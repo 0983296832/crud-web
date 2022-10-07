@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 const { Search } = Input;
 
 const Filter: React.FC<string | any> = ({ sortBy }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const onSearch = (searchKey: string) => {
     if (searchKey === "") {
       dispatch(getAllAnimal(sortBy));

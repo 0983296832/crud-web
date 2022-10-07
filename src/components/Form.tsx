@@ -6,20 +6,13 @@ import { getAllAnimal } from "../store/petSlice";
 import { FormModel } from "../model/form";
 
 interface Props {
-  isFormOpen: boolean;
+  isFormOpen?: boolean;
   setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  type: string;
-  id?: string;
-  data: FormModel;
+  type?: string;
+  data?: FormModel | any;
 }
 
-const FormCP: React.FC<Props> = ({
-  isFormOpen,
-  setIsFormOpen,
-  type,
-  id,
-  data,
-}) => {
+const FormCP: React.FC<Props> = ({ isFormOpen, setIsFormOpen, type, data }) => {
   const dispatch = useDispatch<any>();
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -59,7 +52,6 @@ const FormCP: React.FC<Props> = ({
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log(id);
     console.log("Failed:", errorInfo);
   };
   return (

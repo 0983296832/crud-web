@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Animal } from "../model/animal";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import Loading from "../components/Loading";
+import { animalService } from "../services";
 
 const Detail: React.FC = () => {
   const { id } = useParams();
@@ -13,9 +13,7 @@ const Detail: React.FC = () => {
     const getAnimal = async (id: string | any) => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          "https://633a7f85471b8c39556e4f68.mockapi.io/api/v1/animals/" + id
-        );
+        const response = await animalService.getAnimal(id);
         setAnimal(response.data);
       } catch (error) {
         console.log(error);
