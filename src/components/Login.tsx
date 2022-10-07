@@ -17,7 +17,7 @@ const Login: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
         dispatch(login());
         message.success("Đăng nhập thành công");
         setIsModalOpen(false);
-      } else message.success("Đăng nhập thất bại");
+      } else message.error("Đăng nhập thất bại");
     }, 1000);
   };
 

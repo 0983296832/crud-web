@@ -10,10 +10,14 @@ const Detail: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    const controller = new AbortController();
     const getAnimal = async (id: string | any) => {
       setLoading(true);
       try {
-        const response = await animalService.getAnimal(id);
+        const response = await animalService.getAnimal(id, {
+          signal: controller.signal,
+        });
+
         setAnimal(response.data);
       } catch (error) {
         console.log(error);
@@ -22,6 +26,9 @@ const Detail: React.FC = () => {
     };
 
     getAnimal(id);
+    return () => {
+      controller.abort();
+    };
   }, [id]);
 
   if (loading) {

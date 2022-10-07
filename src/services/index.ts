@@ -8,9 +8,10 @@ export const animalService = {
     );
   },
 
-  getAnimal: (id: string) => {
+  getAnimal: (id: string, cancel: any) => {
     return axios.get(
-      "https://633a7f85471b8c39556e4f68.mockapi.io/api/v1/animals/" + id
+      "https://633a7f85471b8c39556e4f68.mockapi.io/api/v1/animals/" + id,
+      cancel
     );
   },
 
