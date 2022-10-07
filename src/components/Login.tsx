@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button, Form, Input, Modal, message } from "antd";
 import { login } from "../store/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Login: React.FC<any> = ({ setIsModalOpen, isModalOpen }) => {
+interface Props {
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isModalOpen: boolean;
+}
+
+const Login: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
   const dispatch = useDispatch();
 
   const onFinish = (values: any) => {
@@ -20,23 +25,14 @@ const Login: React.FC<any> = ({ setIsModalOpen, isModalOpen }) => {
     console.log("Failed:", errorInfo);
   };
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
   const handleCancel = () => {
     setIsModalOpen(false);
   };
 
   return (
     <Modal
-      title="Basic Modal"
+      title="Đăng Nhập"
       open={isModalOpen}
-      onOk={handleOk}
       onCancel={handleCancel}
       footer={null}
     >

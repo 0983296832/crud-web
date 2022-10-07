@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 
-const Pagin: React.FC<React.SetStateAction<number> | any> = ({
-  page,
-  setPage,
-}) => {
+interface Props {
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Pagin: React.FC<Props> = ({ page, setPage }) => {
   const animal = useSelector((state: any) => state.animal);
 
   const onChange = (pageNumber: any) => {

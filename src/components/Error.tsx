@@ -1,10 +1,8 @@
-import React from 'react'
-import { Empty } from 'antd';
+import React from "react";
+import { Empty } from "antd";
 
-const Error = () => {
-  return (
-    <Empty />
-  )
-}
+const Error: React.FC = () => {
+  return <Empty />;
+};
 
-export default Error
+export default Error;

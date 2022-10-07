@@ -9,7 +9,8 @@ const Filter: React.FC<string | any> = ({ sortBy }) => {
   const dispatch = useDispatch();
   const onSearch = (searchKey: string) => {
     if (searchKey === "") {
-      dispatch(getAllAnimal());
+      dispatch(getAllAnimal(sortBy));
+      dispatch(searchByName({ searchKey: "", sortBy }));
     } else dispatch(searchByName({ searchKey, sortBy }));
   };
 
