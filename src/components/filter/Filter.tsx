@@ -2,11 +2,12 @@ import React from "react";
 import { Input } from "antd";
 import { getAllAnimal, searchByName } from "../../store/petSlice";
 import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store";
 
 const { Search } = Input;
 
 const Filter: React.FC<string | any> = ({ sortBy }) => {
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<AppDispatch>();
   const onSearch = (searchKey: string) => {
     if (searchKey === "") {
       dispatch(getAllAnimal(sortBy));

@@ -4,6 +4,7 @@ import { animalService } from "../services";
 import { useDispatch } from "react-redux";
 import { getAllAnimal } from "../store/petSlice";
 import { FormModel } from "../model/form";
+import { AppDispatch } from "../store";
 
 interface Props {
   isFormOpen?: boolean;
@@ -13,7 +14,7 @@ interface Props {
 }
 
 const FormCP: React.FC<Props> = ({ isFormOpen, setIsFormOpen, type, data }) => {
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<AppDispatch>();
   const [loading, setLoading] = useState<boolean>(false);
 
   const [form] = Form.useForm();

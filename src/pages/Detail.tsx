@@ -3,6 +3,7 @@ import { Animal } from "../model/animal";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import { animalService } from "../services";
+import axios from "axios";
 
 const Detail: React.FC = () => {
   const { id } = useParams();
@@ -10,24 +11,26 @@ const Detail: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const getAnimal = async (id: string | any) => {
+    const cancelToken = axios.CancelToken.source();
+    const getAnimal = async (id: string | any): Promise<void> => {
       setLoading(true);
       try {
         const response = await animalService.getAnimal(id, {
-          signal: controller.signal,
+          cancelToken: cancelToken.token,
         });
 
         setAnimal(response.data);
       } catch (error) {
-        console.log(error);
+        if (axios.isCancel(error)) {
+          console.log(error);
+        }
       }
       setLoading(false);
     };
 
     getAnimal(id);
     return () => {
-      controller.abort();
+      cancelToken.cancel();
     };
   }, [id]);
 

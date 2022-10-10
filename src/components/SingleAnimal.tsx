@@ -8,6 +8,7 @@ import { animalService } from "../services";
 import { deleteAnimal } from "../store/petSlice";
 import FormCP from "./Form";
 import { FormModel } from "../model/form";
+import { RootState } from "../store";
 
 interface Props {
   data: Animal;
@@ -20,7 +21,7 @@ const SingleAnimal: React.FC<Props> = ({
   setIsFormOpen,
   setFormValue,
 }) => {
-  const { name } = useSelector((state: any) => state.user);
+  const { name } = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
 
   const confirm = async () => {

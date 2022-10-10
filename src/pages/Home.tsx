@@ -11,12 +11,12 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import Form from "../components/Form";
 import { FormModel } from "../model/form";
-import axios from "axios";
+import { RootState, AppDispatch } from "../store";
 
 const Home = () => {
-  const animal = useSelector((state: any) => state.animal);
-  const { name } = useSelector((state: any) => state.user);
-  const dispatch = useDispatch<any>();
+  const animal = useSelector((state: RootState) => state.animal);
+  const { name } = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch<AppDispatch>();
   const [page, setPage] = useState<number>(1);
   const [sortBy, setSortBy] = useState<string>("-id");
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
@@ -52,7 +52,15 @@ const Home = () => {
             type="primary"
             icon={<PlusOutlined />}
             size="large"
-            onClick={() => setIsFormOpen(true)}
+            onClick={() => {
+              setIsFormOpen(true);
+              setFormValue({
+                animal_id: "",
+                animal_name: "",
+                animal_desc: "",
+                animal_short: "",
+              });
+            }}
           />
         </div>
       )}

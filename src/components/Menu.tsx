@@ -5,11 +5,12 @@ import Login from "./Login";
 import { useSelector, useDispatch } from "react-redux";
 import { Dropdown, Menu as MenuAtd, message } from "antd";
 import { logout } from "../store/userSlice";
+import { RootState, AppDispatch } from "../store";
 
 const Menu: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const { name } = useSelector((state: any) => state.user);
-  const dispatch = useDispatch();
+  const { name } = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleLogout = (): void => {
     dispatch(logout());
