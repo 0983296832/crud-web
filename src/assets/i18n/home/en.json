@@ -1,0 +1,5 @@
+{
+    "login": "Login",
+    "list": "Animal List",
+    "greeting":"Hello, {{name}}"
+}

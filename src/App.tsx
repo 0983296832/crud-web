@@ -1,13 +1,14 @@
-
-import React from 'react'
-import RootRoute from './routes'
+import React, { Suspense } from "react";
+import RootRoute from "./routes";
 
 const App = () => {
   return (
-   <div className='bg-[#fffdfd]'>
-    <RootRoute />
-   </div>
-  )
-}
+    <div className="bg-[#fffdfd]">
+      <Suspense fallback={null}>
+        <RootRoute />
+      </Suspense>
+    </div>
+  );
+};
 
-export default App
+export default App;

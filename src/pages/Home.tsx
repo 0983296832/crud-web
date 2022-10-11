@@ -12,6 +12,8 @@ import { Button } from "antd";
 import Form from "../components/Form";
 import { FormModel } from "../model/form";
 import { RootState, AppDispatch } from "../store";
+import { useTranslation } from "react-i18next";
+import i18next from "../i18n.js";
 
 const Home = () => {
   const animal = useSelector((state: RootState) => state.animal);
@@ -26,6 +28,9 @@ const Home = () => {
     animal_desc: "",
     animal_short: "",
   });
+  const { t } = useTranslation();
+
+  console.log(t, i18next);
 
   useEffect(() => {
     dispatch(getAllAnimal("-id"));
@@ -45,7 +50,7 @@ const Home = () => {
 
   return (
     <div className="wrapper">
-      <h1 className="text-center mt-10">Animail List</h1>
+      <h1 className="text-center mt-10">{t("list")}</h1>
       {name && (
         <div className="flex justify-end">
           <Button

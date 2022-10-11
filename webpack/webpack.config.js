@@ -29,6 +29,14 @@ module.exports = {
                 test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
                 type: 'asset/inline',
             },
+            {
+                test: /\.json5$/i,
+                loader: 'json5-loader',
+                options: {
+                    esModule: true,
+                },
+                type: 'javascript/auto',
+            }
         ],
     },
     output: {
@@ -46,7 +54,7 @@ module.exports = {
         static: path.resolve(__dirname, "./build"),
         hot: true,
         historyApiFallback: true,
-
+        port: 3000
     },
     // stats: 'errors-only',
 }
