@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
-import AnimalList from "../components/AnimalList";
-import Filter from "../components/filter/Filter";
-import SelectId from "../components/filter/Select";
-import Pagin from "../components/Pagination";
+import { useEffect, useState } from "react";
+import {
+  AnimalList,
+  Filter,
+  Select as SelectId,
+  Pagination as Pagin,
+  Loading,
+  Error,
+  Form,
+} from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllAnimal } from "../store/petSlice";
-import Loading from "../components/Loading";
-import Error from "../components/Error";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-import Form from "../components/Form";
 import { FormModel } from "../model/form";
 import { RootState, AppDispatch } from "../store";
 import { useTranslation } from "react-i18next";
