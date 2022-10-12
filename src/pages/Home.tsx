@@ -17,7 +17,7 @@ import { FormModel } from "../model/form";
 import { RootState, AppDispatch } from "../store";
 import { useTranslation } from "react-i18next";
 
-const Home = () => {
+const Home: React.FC = () => {
   const animal = useSelector((state: RootState) => state.animal);
   const { name } = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch<AppDispatch>();
