@@ -3,11 +3,14 @@ import { Input } from "antd";
 import { getAllAnimal, searchByName } from "../../store/petSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store";
+import { useTranslation } from "react-i18next";
 
 const { Search } = Input;
 
 const Filter: React.FC<string | any> = ({ sortBy }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const { t } = useTranslation();
+
   const onSearch = (searchKey: string) => {
     if (searchKey === "") {
       dispatch(getAllAnimal(sortBy));
@@ -18,9 +21,9 @@ const Filter: React.FC<string | any> = ({ sortBy }) => {
   return (
     <div>
       <Search
-        placeholder="input search text"
+        placeholder={t("input")}
         allowClear
-        enterButton="Search"
+        enterButton={t("search")}
         size="large"
         style={{ width: 300 }}
         onSearch={onSearch}

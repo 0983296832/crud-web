@@ -1,5 +1,17 @@
 {
     "login": "Login",
     "list": "Animal List",
-    "greeting":"Hello, {{name}}"
+    "greeting":"Hello, {{name}}",
+    "user": "User",
+    "logout": "Logout",
+    "pass": "Password",
+    "submit": "Submit",
+    "user_message": "Please input your username!",
+    "pass_message": "Please input your password!",
+    "login_success": "Login Successfully",
+    "login_error": "Login Error",
+    "search": "Search",
+    "id_asc":"Id ascending",
+    "id_dsc":"Id decending",
+    "input": "Please enter a name!"
 }

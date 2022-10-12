@@ -36,13 +36,13 @@ const Detail: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center mt-20">
+      <div className="flex items-center justify-center mt-[100px]">
         <Loading />
       </div>
     );
   }
   return (
-    <div className="flex items-center justify-around wrapper mt-20">
+    <div className="flex items-center justify-around wrapper mt-[120px]">
       <div>
         <img src={animal.animal_avatar} alt="" className="w-400 object-cover" />
       </div>

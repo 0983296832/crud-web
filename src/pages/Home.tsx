@@ -7,6 +7,7 @@ import {
   Loading,
   Error,
   Form,
+  GridImg,
 } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllAnimal } from "../store/petSlice";
@@ -15,7 +16,6 @@ import { Button } from "antd";
 import { FormModel } from "../model/form";
 import { RootState, AppDispatch } from "../store";
 import { useTranslation } from "react-i18next";
-import i18next from "../i18n.js";
 
 const Home = () => {
   const animal = useSelector((state: RootState) => state.animal);
@@ -31,8 +31,6 @@ const Home = () => {
     animal_short: "",
   });
   const { t } = useTranslation();
-
-  console.log(t, i18next);
 
   useEffect(() => {
     dispatch(getAllAnimal("-id"));
@@ -51,7 +49,7 @@ const Home = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div className="wrapper mt-[100px]">
       <h1 className="text-center mt-10">{t("list")}</h1>
       {name && (
         <div className="flex justify-end">
@@ -87,6 +85,7 @@ const Home = () => {
         type="add"
         data={formValue}
       />
+      {/* <GridImg /> */}
     </div>
   );
 };

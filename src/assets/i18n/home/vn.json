@@ -1,5 +1,17 @@
 {
     "login": "Đăng nhập",
     "list": "Danh sách động vật",
-    "greeting":"Xin chào, {{name}}"
+    "greeting":"Xin chào, {{name}}",
+    "user": "Tài Khoản",
+    "logout": "Đăng xuất",
+    "pass": "Mật Khẩu",
+    "submit": "Gửi",
+    "user_message": "Hãy nhập tài khoản!",
+    "pass_message": "Hãy nhập mật khẩu!",
+    "login_success": "Đăng nhập thành công",
+    "login_error": "Đăng nhập lỗi",
+    "search": "Tìm Kiếm",
+    "id_asc":"Id tăng dần",
+    "id_dsc":"Id giảm dần",
+    "input": "Hãy nhập tên!"
 }

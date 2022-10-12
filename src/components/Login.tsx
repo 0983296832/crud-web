@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Form, Input, Modal, message } from "antd";
 import { login } from "../store/userSlice";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,15 +11,19 @@ interface Props {
 
 const Login: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onFinish = (values: any) => {
     setTimeout(() => {
       if (values.username === "admin" && values.password === "admin") {
         dispatch(login());
-        message.success("Đăng nhập thành công");
+        message.success(t("login_success"));
         setIsModalOpen(false);
-      } else message.error("Đăng nhập thất bại");
-    }, 1000);
+      } else {
+        message.error(t("login_error"));
+        setIsModalOpen(false);
+      }
+    }, 500);
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -31,7 +36,7 @@ const Login: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
 
   return (
     <Modal
-      title="Đăng Nhập"
+      title={t("login")}
       open={isModalOpen}
       onCancel={handleCancel}
       footer={null}
@@ -46,24 +51,24 @@ const Login: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
         autoComplete="off"
       >
         <Form.Item
-          label="Username"
+          label={t("user")}
           name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[{ required: true, message: t("user_message") }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label="Password"
+          label={t("pass")}
           name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[{ required: true, message: t("pass_message") }]}
         >
           <Input.Password />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
-            Submit
+            {t("submit")}
           </Button>
         </Form.Item>
       </Form>

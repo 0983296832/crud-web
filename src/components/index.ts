@@ -9,3 +9,4 @@ export { default as SingleAnimal } from "./SingleAnimal";
 export { default as Menu } from "./Menu";
 export { default as Filter } from "./filter/Filter";
 export { default as Select } from "./filter/Select";
+export { default as GridImg } from "./GridImg";
